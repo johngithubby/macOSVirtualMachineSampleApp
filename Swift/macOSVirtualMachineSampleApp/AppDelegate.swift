@@ -92,11 +92,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: Start or restore the virtual machine.
 
     func startVirtualMachine() {
-        virtualMachine.start(completionHandler: { (result) in
-            if case let .failure(error) = result {
+        let options = VZMacOSVirtualMachineStartOptions()
+        options.startUpFromMacOSRecovery = true
+        virtualMachine.start(options: options) { error in
+            if let error {
                 fatalError("Virtual machine failed to start with \(error)")
             }
-        })
+        }
     }
 
     func resumeVirtualMachine() {
