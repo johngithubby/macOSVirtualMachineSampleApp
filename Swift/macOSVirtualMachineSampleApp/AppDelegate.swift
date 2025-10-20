@@ -70,7 +70,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         virtualMachineConfiguration.platform = createMacPlaform()
         virtualMachineConfiguration.bootLoader = MacOSVirtualMachineConfigurationHelper.createBootLoader()
         virtualMachineConfiguration.cpuCount = MacOSVirtualMachineConfigurationHelper.computeCPUCount()
-        virtualMachineConfiguration.memorySize = MacOSVirtualMachineConfigurationHelper.computeMemorySize()
+        virtualMachineConfiguration.memorySize = 8000*1024*1024 //MacOSVirtualMachineConfigurationHelper.computeMemorySize()
 
         virtualMachineConfiguration.audioDevices = [MacOSVirtualMachineConfigurationHelper.createSoundDeviceConfiguration()]
         virtualMachineConfiguration.graphicsDevices = [MacOSVirtualMachineConfigurationHelper.createGraphicsDeviceConfiguration()]
